@@ -7,14 +7,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     if (email === "admin@empresa.com" && password === "123456") {
+      setLoginError(false); // zera o erro ao logar corretamente
       navigate("/dashboard");
     } else {
-      alert("Credenciais inválidas!");
+      setLoginError(true); // ativa o erro se login for inválido
     }
   };
 
@@ -38,6 +40,11 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+           
+           {loginError && (
+            <p className="error-message">Credenciais inválidas</p>
+          )}
+          
           <button type="submit">Entrar</button>
         </form>
       </div>
