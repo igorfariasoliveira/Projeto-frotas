@@ -24,14 +24,16 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <img src={logo} alt="Frotas Pro Logo" className="login-logo" />
-        <h2>Login</h2>
+        <h2>Seja bem-vindo!</h2>
         <form onSubmit={handleLogin}>
           <label>Email:</label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+             type="email" 
+             value={email} 
+             onChange={(e) => setEmail(e.target.value)} 
+             className="input-field" 
+             required
+             autoFocus
           />
           <label>Senha:</label>
           <input

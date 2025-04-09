@@ -1,7 +1,12 @@
-html, body {
-  height: 100%;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .login-container {
@@ -25,7 +30,7 @@ html, body {
 }
 
 .login-logo {
-  width: 180px;
+  width: 150px;
   margin-bottom: 5px;
 }
 
