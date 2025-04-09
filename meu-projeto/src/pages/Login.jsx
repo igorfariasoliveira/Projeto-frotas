@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
-import logo from "../assets/logo.png"; // Caminho para sua logo
+import logo from "../assets/logo.png"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,10 +13,10 @@ const Login = () => {
     e.preventDefault();
 
     if (email === "admin@empresa.com" && password === "123456") {
-      setLoginError(false); // zera o erro ao logar corretamente
+      setLoginError(false); 
       navigate("/dashboard");
     } else {
-      setLoginError(true); // ativa o erro se login for inválido
+      setLoginError(true); 
     }
   };
 
