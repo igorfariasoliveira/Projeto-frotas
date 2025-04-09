@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 import React, { useState } from "react";
 import logo from "../assets/logoSidebar.png";
+import { FaHome, FaTruck, FaTools, FaChartBar } from "react-icons/fa";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -18,10 +19,22 @@ const Dashboard = () => {
         </div>
         <nav>
           <ul>
-            <li><span>Início</span></li>
-            <li><span>Veículos</span></li>
-            <li><span>Manutenções</span></li>
-            <li><span>Relatórios</span></li>
+            <li>
+              <FaHome className="icon" />
+              {sidebarOpen && <span>Início</span>}
+            </li>
+            <li>
+              <FaTruck className="icon" />
+              {sidebarOpen && <span>Veículos</span>}
+            </li>
+            <li>
+              <FaTools className="icon" />
+              {sidebarOpen && <span>Manutenções</span>}
+            </li>
+            <li>
+              <FaChartBar className="icon" />
+              {sidebarOpen && <span>Relatórios</span>}
+            </li>
           </ul>
         </nav>
       </aside>
