@@ -45,72 +45,59 @@ const Dashboard = () => {
         <h1>Bem-vindo ao painel Frotas Pro</h1>
         <p>Acompanhe seus veículos, manutenções e muito mais.</p>
         <div className="cards-container">
-          <div className="card">
-            <h3>Veículos</h3>
-            <p>Total: 48</p>
-            <p>Em manutenção: 5</p>
-            <p>Em rota: 21</p>
+          {/* Cards pequenos em linha */}
+          <div className="cards-row">
+            <div className="card">
+              <h3>Veículos</h3>
+              <p>Total: 25</p>
+              <p>Em manutenção: 5</p>
+              <p>Em rota: 10</p>
+            </div>
+            <div className="card">
+              <div className="card-header">
+                <h3>Custos</h3>
+                <select>
+                  <option>Este mês</option>
+                  <option>Mês passado</option>
+                </select>
+              </div>
+              <p>Manutenção: R$ 12.000</p>
+              <p>Combustível: R$ 18.500</p>
+            </div>
           </div>
 
-          <div className="card">
-            <div className="card-header">
-              <h3>Despesas</h3>
-              <select>
-                <option>Últimos 7 dias</option>
-                <option>Últimos 30 dias</option>
-                <option>Este ano</option>
-              </select>
-            </div>
-            <p>Manutenção: R$ 12.300,00</p>
-            <p>Combustível: R$ 25.800,00</p>
-            <p>Gasto com pessoal: R$ 14.00,00</p>
-          </div>
           <div className="vehicle-status-card">
-            <h3>Resumo dos Veículos</h3>
-            <div className="vehicle-item">
-              <p>
-                <strong>Placa:</strong> ABC-1234
-              </p>
-              <p>
-                <strong>Status:</strong> Em Rota
-              </p>
-              <p>
-                <strong>Carregamento:</strong> #4567
-              </p>
-              <p>
-                <strong>Quilometragem Total:</strong> 158.000 km
-              </p>
-            </div>
-
-            <div className="vehicle-item">
-              <p>
-                <strong>Placa:</strong> XYZ-5678
-              </p>
-              <p>
-                <strong>Status:</strong> Livre
-              </p>
-              <p>
-                <strong>Última Entrega:</strong> 09/04/2025
-              </p>
-              <p>
-                <strong>Quilometragem Total:</strong> 102.300 km
-              </p>
-            </div>
-
-            <div className="vehicle-item">
-              <p>
-                <strong>Placa:</strong> LMN-9012
-              </p>
-              <p>
-                <strong>Status:</strong> Oficina
-              </p>
-              <p>
-                <strong>Última Entrega:</strong> 05/04/2025
-              </p>
-              <p>
-                <strong>Quilometragem Total:</strong> 134.750 km
-              </p>
-            </div>
+            <h3>Status dos Veículos</h3>
+            <table className="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Placa</th>
+                  <th>Status</th>
+                  <th>Carregamento / Última Entrega</th>
+                  <th>Quilometragem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ABC-1234</td>
+                  <td>Em rota</td>
+                  <td>#456</td>
+                  <td>120.000 km</td>
+                </tr>
+                <tr>
+                  <td>DEF-5678</td>
+                  <td>Na oficina</td>
+                  <td>Última: 04/04/2025</td>
+                  <td>98.500 km</td>
+                </tr>
+                <tr>
+                  <td>GHI-9012</td>
+                  <td>Livre</td>
+                  <td>Última: 02/04/2025</td>
+                  <td>143.000 km</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </main>

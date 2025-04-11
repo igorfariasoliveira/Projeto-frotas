@@ -94,17 +94,29 @@
 .toggle-button {
   position: absolute;
   top: 20px;
-  left: -20px;
+
   background-color: #3589e9;
   color: white;
   border: none;
   padding: 8px;
   border-radius: 4px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
+  /* garantir que fique acima do sidebar */
+  transition: left 0.3s ease;
 }
 
-/* Cards */
+.sidebar-open-button {
+  left: 20px;
+  /* Largura do sidebar aberto */
+}
+
+.sidebar-closed-button {
+  left: 60px;
+  /* Largura do sidebar fechado */
+}
+
+/* Cards container principal */
 .cards-container {
   display: flex;
   flex-direction: column;
@@ -112,19 +124,21 @@
   margin-top: 40px;
 }
 
+/* Linha de cards pequenos */
 .cards-row {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 }
 
+/* Estilo dos cards */
 .card {
   background: linear-gradient(to bottom right, #ffffff, #f4f6f8);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   padding: 24px;
   flex: 1;
-  min-width: 280px;
+  min-width: 320px;
   max-width: 400px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -162,7 +176,7 @@
   cursor: pointer;
 }
 
-/* Vehicle Status Card */
+/* Card maior com a tabela */
 .vehicle-status-card {
   background: linear-gradient(to bottom right, #ffffff, #f4f6f8);
   border-radius: 16px;
@@ -177,17 +191,21 @@
   color: #1e2a38;
 }
 
-.vehicle-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.vehicle-item:last-child {
-  border-bottom: none;
-}
-
-.vehicle-item p {
-  margin: 4px 0;
+.vehicle-table th,
+.vehicle-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
   font-size: 15px;
   color: #333;
+}
+
+.vehicle-table th {
+  background-color: #f0f2f5;
+  color: #1e2a38;
 }
