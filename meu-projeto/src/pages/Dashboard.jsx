@@ -44,6 +44,27 @@ const Dashboard = () => {
         </button>
         <h1>Bem-vindo ao painel Frotas Pro</h1>
         <p>Acompanhe seus veículos, manutenções e muito mais.</p>
+        <div className="cards-container">
+          <div className="card">
+            <h3>Veículos</h3>
+            <p>Total: 48</p>
+            <p>Em manutenção: 5</p>
+            <p>Em rota: 21</p>
+          </div>
+
+          <div className="card">
+            <div className="card-header">
+              <h3>Gastos</h3>
+              <select>
+                <option>Últimos 7 dias</option>
+                <option>Últimos 30 dias</option>
+                <option>Este ano</option>
+              </select>
+            </div>
+            <p>Manutenção: R$ 12.300,00</p>
+            <p>Combustível: R$ 25.800,00</p>
+          </div>
+        </div>
       </main>
     </div>
   );
