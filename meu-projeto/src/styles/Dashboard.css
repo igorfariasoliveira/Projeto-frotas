@@ -123,14 +123,12 @@
   margin-top: 40px;
 }
 
-/* Linha de cards pequenos */
 .cards-row {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 }
 
-/* Estilo dos cards */
 .card {
   background: linear-gradient(to bottom right, #ffffff, #f4f6f8);
   border-radius: 16px;
