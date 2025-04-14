@@ -38,14 +38,18 @@ const Dashboard = () => {
           </ul>
         </nav>
       </aside>
+      <button
+        onClick={toggleSidebar}
+        className={`toggle-button ${
+          sidebarOpen ? "sidebar-open-button" : "sidebar-closed-button"
+        }`}
+      >
+        {sidebarOpen ? "⟨" : "⟩"}
+      </button>
       <main className="main-content">
-        <button onClick={toggleSidebar} className="toggle-button">
-          {sidebarOpen ? "⟨" : "⟩"}
-        </button>
         <h1>Bem-vindo ao painel Frotas Pro</h1>
         <p>Acompanhe seus veículos, manutenções e muito mais.</p>
         <div className="cards-container">
-          {/* Cards pequenos em linha */}
           <div className="cards-row">
             <div className="card">
               <h3>Veículos</h3>
@@ -65,7 +69,18 @@ const Dashboard = () => {
               <p>Combustível: R$ 18.500</p>
             </div>
           </div>
-
+          <div className="card">
+            <div className="card-header">
+              <h3>Despesas com Pessoal</h3>
+              <select>
+                <option>Mensal</option>
+                <option>Semanal</option>
+              </select>
+            </div>
+            <p>Alimentação: R$ 2.300,00</p>
+            <p>Hospedagem: R$ 1.800,00</p>
+            <p>Outros: R$ 900,00</p>
+          </div>
           <div className="vehicle-status-card">
             <h3>Status dos Veículos</h3>
             <table className="vehicle-table">

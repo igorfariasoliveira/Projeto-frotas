@@ -94,7 +94,6 @@
 .toggle-button {
   position: absolute;
   top: 20px;
-
   background-color: #3589e9;
   color: white;
   border: none;
@@ -107,12 +106,12 @@
 }
 
 .sidebar-open-button {
-  left: 20px;
+  left: 217px;
   /* Largura do sidebar aberto */
 }
 
 .sidebar-closed-button {
-  left: 60px;
+  left: 37px;
   /* Largura do sidebar fechado */
 }
 
