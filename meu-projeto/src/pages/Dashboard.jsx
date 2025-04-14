@@ -71,15 +71,20 @@ const Dashboard = () => {
           </div>
           <div className="card">
             <div className="card-header">
-              <h3>Despesas com Pessoal</h3>
-              <select>
-                <option>Mensal</option>
-                <option>Semanal</option>
-              </select>
+              <h3>Notificações</h3>
             </div>
-            <p>Alimentação: R$ 2.300,00</p>
-            <p>Hospedagem: R$ 1.800,00</p>
-            <p>Outros: R$ 900,00</p>
+            <div className="notification-item urgent">
+              <span className="urgency-icon red" /> Veículo ABC-1234 está com
+              revisão pendente.
+            </div>
+            <div className="notification-item medium">
+              <span className="urgency-icon yellow" /> Troca de óleo agendada
+              para o dia 15/04.
+            </div>
+            <div className="notification-item low">
+              <span className="urgency-icon green" /> Documentação do veículo
+              DEF-5678 está em dia.
+            </div>
           </div>
           <div className="vehicle-status-card">
             <h3>Status dos Veículos</h3>

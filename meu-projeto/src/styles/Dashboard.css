@@ -134,11 +134,12 @@
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   padding: 24px;
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
+  flex: 1 1 0;
+  min-width: 200px;
+  max-width: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 
 .card:hover {
   transform: translateY(-4px);
@@ -149,6 +150,44 @@
   margin-bottom: 16px;
   font-size: 20px;
   color: #1e2a38;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.urgency-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.urgency-icon.red {
+  background-color: #e74c3c;
+}
+
+.urgency-icon.yellow {
+  background-color: #f1c40f;
+}
+
+.urgency-icon.green {
+  background-color: #2ecc71;
+}
+
+.urgent {
+  color: #e74c3c;
+}
+
+.medium {
+  color: #f39c12;
+}
+
+.low {
+  color: #27ae60;
 }
 
 .card p {
@@ -173,7 +212,6 @@
   cursor: pointer;
 }
 
-/* Card maior com a tabela */
 .vehicle-status-card {
   background: linear-gradient(to bottom right, #ffffff, #f4f6f8);
   border-radius: 16px;
@@ -206,3 +244,4 @@
   background-color: #f0f2f5;
   color: #1e2a38;
 }
+
