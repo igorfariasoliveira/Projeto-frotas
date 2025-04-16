@@ -1,4 +1,5 @@
 import React from "react";
+import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Veiculos.css";
 
 const veiculos = [
@@ -27,31 +28,33 @@ const veiculos = [
 
 const Veiculos = () => {
   return (
-    <div className="veiculos-container">
-      <h1>Lista de Veículos</h1>
-      <table className="veiculos-table">
-        <thead>
-          <tr>
-            <th>Placa</th>
-            <th>Gasto com Combustível</th>
-            <th>Última Manutenção</th>
-            <th>Licenciamento</th>
-            <th>Motorista</th>
-          </tr>
-        </thead>
-        <tbody>
-          {veiculos.map((v, index) => (
-            <tr key={index}>
-              <td>{v.placa}</td>
-              <td>{v.combustivel}</td>
-              <td>{v.manutencao}</td>
-              <td>{v.licenciamento}</td>
-              <td>{v.motorista}</td>
+    <DashboardLayout>
+      <div className="veiculos-container">
+        <h1>Lista de Veículos</h1>
+        <table className="veiculos-table">
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Gasto com Combustível</th>
+              <th>Última Manutenção</th>
+              <th>Licenciamento</th>
+              <th>Motorista</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {veiculos.map((v, index) => (
+              <tr key={index}>
+                <td>{v.placa}</td>
+                <td>{v.combustivel}</td>
+                <td>{v.manutencao}</td>
+                <td>{v.licenciamento}</td>
+                <td>{v.motorista}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </DashboardLayout>
   );
 };
 

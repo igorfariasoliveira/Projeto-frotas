@@ -59,8 +59,37 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   white-space: nowrap;
+  width: 100%; /* Garantir que o item de lista ocupe toda a largura */
 }
 
+.sidebar nav ul li a {
+  display: flex; /* Para garantir que o ícone e o texto fiquem lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 0; /* Remove o padding extra */
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Herda a cor do texto do elemento pai */
+  width: 240px; /* Garante que o link ocupe a largura inteira do li */
+  height: 100%; /* Garante que o link ocupe a altura inteira do li */
+  box-sizing: border-box; /* Inclui padding e bordas no cálculo de largura/altura */
+}
+
+/* Estilo dos links no estado normal (não ativo) */
+.sidebar nav ul li a:not(.active) {
+  color: #333; /* Cor padrão do texto */
+}
+
+/* Estilo dos links quando ativos (não precisa de underline) */
+.sidebar nav ul li a.active {
+  color: #000; /* Cor de texto para quando o link estiver ativo */
+  font-weight: bold; /* Se quiser, pode deixar o texto em negrito */
+}
+
+/* Quando o link é hover, você pode mudar a cor para indicar interação */
+.sidebar nav ul li a:hover {
+  color: #007bff; /* Cor de hover, você pode mudar para a cor que preferir */
+}
+
+/* Hover no item de lista */
 .sidebar nav ul li:hover {
   background-color: #2c3e50;
 }
