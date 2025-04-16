@@ -86,7 +86,7 @@
 .main-content {
   flex: 1;
   padding: 20px;
-  background-color: #f4f6f8;
+  background-color: #e2e6ea;
   position: relative;
   overflow-y: auto;
 }
