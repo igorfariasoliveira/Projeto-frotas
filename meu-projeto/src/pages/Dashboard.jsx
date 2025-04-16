@@ -47,7 +47,7 @@ const Dashboard = () => {
         {sidebarOpen ? "⟨" : "⟩"}
       </button>
       <main className="main-content">
-        <h1>Bem-vindo ao painel Frotas Pro</h1>
+        <h1>Bem-vindo ao painel Frotas-Pro</h1>
         <p>Acompanhe seus veículos, manutenções e muito mais.</p>
         <div className="cards-container">
           <div className="cards-row">

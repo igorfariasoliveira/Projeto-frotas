@@ -1,0 +1,36 @@
+.veiculos-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.veiculos-container h1 {
+  margin-bottom: 24px;
+  color: #1e2a38;
+}
+
+.veiculos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.veiculos-table th,
+.veiculos-table td {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  color: #333;
+}
+
+.veiculos-table th {
+  background-color: #f0f2f5;
+  color: #1e2a38;
+}
+
+.veiculos-table tr:hover {
+  background-color: #f9fafb;
+}
