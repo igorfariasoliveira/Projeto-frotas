@@ -1,8 +1,6 @@
-// src/components/DashboardLayout.js
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
-import "../styles/Dashboard.css"; // ou outro nome se preferir
-
+import "../styles/Dashboard.css";
 const DashboardLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
