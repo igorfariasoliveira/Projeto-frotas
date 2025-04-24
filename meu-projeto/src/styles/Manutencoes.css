@@ -1,0 +1,46 @@
+.manutencao-content {
+  padding: 2rem;
+}
+
+.manutencao-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.manutencao-table th,
+.manutencao-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.manutencao-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.status {
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+}
+
+.status.concluída {
+  color: #1a7f37;
+  background-color: #dcfce7;
+}
+
+.status.em-andamento {
+  color: #b45309;
+  background-color: #fef3c7;
+}
+
+.status.agendada {
+  color: #0e7490;
+  background-color: #cffafe;
+}

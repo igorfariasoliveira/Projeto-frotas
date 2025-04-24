@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaTruck, FaTools, FaChartBar } from "react-icons/fa";
+import { FaHome, FaTruck, FaTools, FaChartBar, FaUserTie } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
 
 const Sidebar = ({ sidebarOpen }) => {
@@ -33,6 +33,12 @@ const Sidebar = ({ sidebarOpen }) => {
             <NavLink to="/relatorios">
               <FaChartBar className="icon" />
               {sidebarOpen && <span>Relatórios</span>}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/motoristas">
+              <FaUserTie className="icon" />
+              {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
         </ul>
