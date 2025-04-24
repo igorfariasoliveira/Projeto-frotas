@@ -1,9 +1,10 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/Dashboard.css";
 import React, { useState } from "react";
-import logo from "../assets/logoSidebar.png";
 import { FaHome, FaTruck, FaTools, FaChartBar } from "react-icons/fa";
 import DashboardLayout from "../components/DashboardLayout";
+import BarChartCustom from "../components/BarChartCustom";
+
 
 const Dashboard = () => {
   return (
@@ -48,6 +49,7 @@ const Dashboard = () => {
               DEF-5678 está em dia.
             </div>
           </div>
+          <BarChartCustom />
           <div className="vehicle-status-card">
             <h3>Status dos Veículos</h3>
             <table className="vehicle-table">
