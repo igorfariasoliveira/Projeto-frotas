@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Veiculos.css";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const veiculos = [
+const veiculosExemplo = [
   {
     placa: "ABC-1234",
     combustivel: "R$ 4.500",
@@ -27,6 +28,43 @@ const veiculos = [
 ];
 
 const Veiculos = () => {
+  const [veiculos, setVeiculos] = useState(veiculosExemplo);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+
+  const ordenar = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+
+    const sorted = [...veiculos].sort((a, b) => {
+      const aValue = key === "combustivel" ? parseFloat(a[key].replace(/[^\d,-]+/g, "").replace(",", ".")) : a[key];
+      const bValue = key === "combustivel" ? parseFloat(b[key].replace(/[^\d,-]+/g, "").replace(",", ".")) : b[key];
+
+      if (key.includes("manutencao") || key.includes("licenciamento")) {
+        const aDate = new Date(a[key].split("/").reverse().join("-"));
+        const bDate = new Date(b[key].split("/").reverse().join("-"));
+        return direction === "asc" ? aDate - bDate : bDate - aDate;
+      }
+
+      return direction === "asc"
+        ? aValue.toString().localeCompare(bValue.toString())
+        : bValue.toString().localeCompare(aValue.toString());
+    });
+
+    setVeiculos(sorted);
+    setSortConfig({ key, direction });
+  };
+
+  const renderSortIcon = (key) => {
+    if (sortConfig.key !== key) return null;
+    return sortConfig.direction === "asc" ? (
+      <FaChevronDown className="icone-ordenacao" />
+    ) : (
+      <FaChevronUp className="icone-ordenacao" />
+    );
+  };
+
   return (
     <DashboardLayout>
       <div className="veiculos-container">
@@ -34,11 +72,21 @@ const Veiculos = () => {
         <table className="veiculos-table">
           <thead>
             <tr>
-              <th>Placa</th>
-              <th>Gasto com Combustível</th>
-              <th>Última Manutenção</th>
-              <th>Licenciamento</th>
-              <th>Motorista</th>
+              <th onClick={() => ordenar("placa")}>
+                Placa {renderSortIcon("placa")}
+              </th>
+              <th onClick={() => ordenar("combustivel")}>
+                Gasto com Combustível {renderSortIcon("combustivel")}
+              </th>
+              <th onClick={() => ordenar("manutencao")}>
+                Última Manutenção {renderSortIcon("manutencao")}
+              </th>
+              <th onClick={() => ordenar("licenciamento")}>
+                Licenciamento {renderSortIcon("licenciamento")}
+              </th>
+              <th onClick={() => ordenar("motorista")}>
+                Motorista {renderSortIcon("motorista")}
+              </th>
             </tr>
           </thead>
           <tbody>

@@ -34,3 +34,14 @@
 .veiculos-table tr:hover {
   background-color: #f9fafb;
 }
+
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.icone-ordenacao {
+  margin-left: 6px;
+  font-size: 0.8rem;
+  vertical-align: middle;
+}
