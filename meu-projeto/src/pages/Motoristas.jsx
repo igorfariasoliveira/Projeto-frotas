@@ -120,11 +120,7 @@ const Motoristas = () => {
                 <tr onClick={() => toggleExpandido(motorista.id)} className="clickable-row">
                   <td>
                     {motorista.nome}{" "}
-                    {expandido === motorista.id ? (
-                      <FaChevronUp className="icone-expand" />
-                    ) : (
-                      <FaChevronDown className="icone-expand" />
-                    )}
+                
                   </td>
                   <td>{motorista.ultimoCarregamento}</td>
                 </tr>
