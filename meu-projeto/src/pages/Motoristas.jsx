@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { FaSortDown, FaSortUp } from "react-icons/fa";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Motoristas.css";
@@ -9,9 +8,8 @@ const dadosMotoristas = [
     id: 1,
     nome: "João da Silva",
     ultimoCarregamento: "25/04/2025",
-    cpf: "123.456.789-00",
-    rg: "12.345.678-9",
     habilitacao: "987654321",
+    vencimento:"25/02/2030",
     telefone: "(11) 91234-5678",
     email: "joao.silva@email.com",
   },
@@ -19,9 +17,8 @@ const dadosMotoristas = [
     id: 2,
     nome: "Maria Oliveira",
     ultimoCarregamento: "24/04/2025",
-    cpf: "987.654.321-00",
-    rg: "98.765.432-1",
     habilitacao: "123456789",
+    vencimento:"25/02/2030",
     telefone: "(11) 92345-6789",
     email: "maria.oliveira@email.com",
   },
@@ -29,9 +26,8 @@ const dadosMotoristas = [
     id: 3,
     nome: "Igor Farias",
     ultimoCarregamento: "24/09/2025",
-    cpf: "535.445.378-90",
-    rg: "32.573.449-0",
-    habilitacao: "C",
+    habilitacao: "068958475478",
+    vencimento:"25/02/2030",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -39,9 +35,8 @@ const dadosMotoristas = [
     id: 4,
     nome: "Pedro dantas",
     ultimoCarregamento: "24/09/2025",
-    cpf: "535.445.378-90",
-    rg: "32.573.449-0",
-    habilitacao: "C",
+    habilitacao: "068958475478",
+    vencimento:"25/02/2030",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -49,9 +44,8 @@ const dadosMotoristas = [
     id: 5,
     nome: "Luan Alves",
     ultimoCarregamento: "24/09/2025",
-    cpf: "535.445.378-90",
-    rg: "32.573.449-0",
-    habilitacao: "C",
+    vencimento:"25/02/2030",
+    habilitacao: "068958475478",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -59,9 +53,8 @@ const dadosMotoristas = [
     id: 6,
     nome: "Sergio Pires",
     ultimoCarregamento: "24/09/2025",
-    cpf: "535.445.378-90",
-    rg: "32.573.449-0",
-    habilitacao: "C",
+    vencimento:"25/02/2030",
+    habilitacao: "068958475478",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -128,9 +121,8 @@ const Motoristas = () => {
                   <tr className="expandable-details">
                     <td colSpan="2">
                       <div className="expandable-details-content">
-                        <p><strong>CPF:</strong> {motorista.cpf}</p>
-                        <p><strong>RG:</strong> {motorista.rg}</p>
                         <p><strong>CNH:</strong> {motorista.habilitacao}</p>
+                        <p><strong>Vencimento:</strong> {motorista.vencimento}</p>
                         <p><strong>Telefone:</strong> {motorista.telefone}</p>
                         <p><strong>Email:</strong> {motorista.email}</p>
                       </div>
