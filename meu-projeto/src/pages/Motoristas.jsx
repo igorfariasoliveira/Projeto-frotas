@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaSortDown, FaSortUp } from "react-icons/fa";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Motoristas.css";
 
-const motoristasExemplo = [
+const dadosMotoristas = [
   {
     id: 1,
     nome: "João da Silva",
     ultimoCarregamento: "25/04/2025",
     cpf: "123.456.789-00",
     rg: "12.345.678-9",
-    cnh: "987654321",
+    habilitacao: "987654321",
     telefone: "(11) 91234-5678",
     email: "joao.silva@email.com",
   },
@@ -19,18 +21,82 @@ const motoristasExemplo = [
     ultimoCarregamento: "24/04/2025",
     cpf: "987.654.321-00",
     rg: "98.765.432-1",
-    cnh: "123456789",
-    telefone: "(21) 99876-5432",
+    habilitacao: "123456789",
+    telefone: "(11) 92345-6789",
     email: "maria.oliveira@email.com",
+  },
+  {
+    id: 3,
+    nome: "Igor Farias",
+    ultimoCarregamento: "24/09/2025",
+    cpf: "535.445.378-90",
+    rg: "32.573.449-0",
+    habilitacao: "C",
+    telefone: "(11) 9678-8381",
+    email: "igor@hotmail.com",
+  },
+  {
+    id: 4,
+    nome: "Pedro dantas",
+    ultimoCarregamento: "24/09/2025",
+    cpf: "535.445.378-90",
+    rg: "32.573.449-0",
+    habilitacao: "C",
+    telefone: "(11) 9678-8381",
+    email: "igor@hotmail.com",
+  },
+  {
+    id: 5,
+    nome: "Luan Alves",
+    ultimoCarregamento: "24/09/2025",
+    cpf: "535.445.378-90",
+    rg: "32.573.449-0",
+    habilitacao: "C",
+    telefone: "(11) 9678-8381",
+    email: "igor@hotmail.com",
+  },
+  {
+    id: 6,
+    nome: "Sergio Pires",
+    ultimoCarregamento: "24/09/2025",
+    cpf: "535.445.378-90",
+    rg: "32.573.449-0",
+    habilitacao: "C",
+    telefone: "(11) 9678-8381",
+    email: "igor@hotmail.com",
   },
 ];
 
 const Motoristas = () => {
-  const [motoristas, setMotoristas] = useState(motoristasExemplo);
-  const [expandidoId, setExpandidoId] = useState(null);
+  const [motoristas, setMotoristas] = useState(dadosMotoristas);
+  const [expandido, setExpandido] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
-  const toggleExpandir = (id) => {
-    setExpandidoId(expandidoId === id ? null : id);
+  const ordenar = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+
+    const sorted = [...motoristas].sort((a, b) => {
+      const aVal = a[key];
+      const bVal = b[key];
+      return direction === "asc"
+        ? aVal.localeCompare(bVal)
+        : bVal.localeCompare(aVal);
+    });
+
+    setMotoristas(sorted);
+    setSortConfig({ key, direction });
+  };
+
+  const getIconeOrdenacao = (key) => {
+    if (sortConfig.key !== key) return <FaSortDown style={{ opacity: 0.3 }} />;
+    return sortConfig.direction === "asc" ? <FaSortDown /> : <FaSortUp />;
+  };
+
+  const toggleExpandido = (id) => {
+    setExpandido(expandido === id ? null : id);
   };
 
   return (
@@ -40,24 +106,35 @@ const Motoristas = () => {
         <table className="motoristas-table">
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Último Carregamento</th>
+              <th onClick={() => ordenar("nome")}>
+                Nome {getIconeOrdenacao("nome")}
+              </th>
+              <th onClick={() => ordenar("ultimoCarregamento")}>
+                Último Carregamento {getIconeOrdenacao("ultimoCarregamento")}
+              </th>
             </tr>
           </thead>
           <tbody>
             {motoristas.map((motorista) => (
               <React.Fragment key={motorista.id}>
-                <tr onClick={() => toggleExpandir(motorista.id)} className="linha-principal">
-                  <td>{motorista.nome}</td>
+                <tr onClick={() => toggleExpandido(motorista.id)} className="clickable-row">
+                  <td>
+                    {motorista.nome}{" "}
+                    {expandido === motorista.id ? (
+                      <FaChevronUp className="icone-expand" />
+                    ) : (
+                      <FaChevronDown className="icone-expand" />
+                    )}
+                  </td>
                   <td>{motorista.ultimoCarregamento}</td>
                 </tr>
-                {expandidoId === motorista.id && (
-                  <tr className="linha-detalhes">
+                {expandido === motorista.id && (
+                  <tr className="expandable-details">
                     <td colSpan="2">
-                      <div className="detalhes-motorista">
+                      <div className="expandable-details-content">
                         <p><strong>CPF:</strong> {motorista.cpf}</p>
                         <p><strong>RG:</strong> {motorista.rg}</p>
-                        <p><strong>CNH:</strong> {motorista.cnh}</p>
+                        <p><strong>CNH:</strong> {motorista.habilitacao}</p>
                         <p><strong>Telefone:</strong> {motorista.telefone}</p>
                         <p><strong>Email:</strong> {motorista.email}</p>
                       </div>

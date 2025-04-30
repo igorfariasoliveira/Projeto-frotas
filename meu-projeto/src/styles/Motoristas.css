@@ -5,7 +5,7 @@
 
 .motoristas-content h1 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .motoristas-table {
@@ -19,32 +19,39 @@
 
 .motoristas-table th,
 .motoristas-table td {
-  padding: 12px 16px;
+  padding: 14px 18px;
   text-align: left;
   border-bottom: 1px solid #eee;
 }
 
 .motoristas-table th {
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
   font-weight: bold;
   color: #333;
   cursor: pointer;
+  user-select: none;
 }
 
-.motoristas-table tr:hover {
+.motoristas-table tr:hover:not(.expandable-details) {
   background-color: #f9f9f9;
 }
 
-.motoristas-table .expandable-details td {
+.expandable-details td {
   background-color: #fcfcfc;
-  border-top: none;
-  padding: 10px 20px;
+  padding: 20px 30px;
   font-size: 0.95rem;
   color: #444;
+  line-height: 1.6;
+  border-top: none;
+  border-bottom: 1px solid #eee;
 }
 
-.expandable-details {
-  animation: expand 0.3s ease-in-out;
+.expandable-details p {
+  margin: 6px 0;
+}
+
+.expandable-row td {
+  border-bottom: none;
 }
 
 @keyframes expand {
@@ -58,6 +65,10 @@
   }
 }
 
-.expandable-row td {
-  border-bottom: none;
+.expandable-details {
+  animation: expand 0.3s ease-in-out;
+}
+
+.clickable-row {
+  cursor: pointer;
 }
