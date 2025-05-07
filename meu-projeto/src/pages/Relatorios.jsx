@@ -59,6 +59,7 @@ const Relatorios = () => {
               <option>Carregamentos por Período</option>
               <option>Manutenções por Caminhão</option>
               <option>Consumo de Combustível</option>
+              <option>Viagens</option>
             </select>
           </div>
 
