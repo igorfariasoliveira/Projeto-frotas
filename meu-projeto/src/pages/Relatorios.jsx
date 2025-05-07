@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Relatorios.css";
 
-const veiculos = ["ABC-1234", "DEF-5678", "GHI-9012"];
+const veiculos = ["ABC-1234", "DEF-5678", "GHI-9012", "TBG-2584"];
 
 const Relatorios = () => {
   const [tipoRelatorio, setTipoRelatorio] = useState("Despesas por Caminhão");
