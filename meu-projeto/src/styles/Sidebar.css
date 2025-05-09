@@ -1,24 +1,130 @@
-.submenu {
-  padding-left: 32px;
+/* Sidebar Styles */
+.sidebar {
+  width: 240px;
+  background-color: #1e2a38;
+  color: white;
+  transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
-.submenu li a {
+.sidebar.closed {
+  width: 60px;
+}
+
+.logo-container {
+  padding: 20px;
+  text-align: center;
+  height: 80px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #333;
+  justify-content: center;
+}
+
+.sidebar.closed .logo-container {
+  height: 80px;
+  padding: 0;
+  justify-content: center;
+}
+
+.sidebar.closed .logo-container img {
+  display: none;
+}
+
+.logo {
+  max-height: 50px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
   text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
 }
 
-.submenu li a:hover {
-  color: #1e88e5;
+.sidebar nav ul li a span {
+  width: auto;
+  margin-left: 10px;
+  overflow: hidden;
 }
 
-.menu-toggle {
+.sidebar nav ul li:hover {
+  background-color: #2c3e50;
+}
+
+.sidebar nav ul li a:hover {
+  color: #007bff;
+}
+
+.sidebar.closed nav ul li {
+  justify-content: center;
+}
+
+.sidebar nav ul li span {
+  transition: opacity 0.3s ease, width 0.3s ease;
+  opacity: 1;
+}
+
+.sidebar.closed nav ul li span {
+  opacity: 0;
+  width: 0;
+}
+
+/* Cadastros dropdown */
+.cadastro-link {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding: 15px 20px;
+  gap: 10px;
+  width: 100%;
+}
+
+.cadastro-link:hover {
+  background-color: #2c3e50;
+  cursor: pointer;
+}
+
+.chevron {
+  margin-left: auto;
+}
+
+.sidebar nav ul .submenu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  gap: 4px;
+}
+
+.sidebar nav ul .submenu li a {
+  font-size: 14px;
+  padding: 10px 12px;
+  color: #ccc;
+}
+
+.sidebar nav ul .submenu li a:hover {
+  background-color: #2c3e50;
+  color: #fff;
+  border-radius: 4px;
 }

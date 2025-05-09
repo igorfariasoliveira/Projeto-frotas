@@ -11,7 +11,6 @@ import {
   FaChevronUp,
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
-import "../styles/Sidebar.css";
 
 const Sidebar = ({ sidebarOpen }) => {
   const [cadastroOpen, setCadastroOpen] = useState(false);
@@ -55,34 +54,29 @@ const Sidebar = ({ sidebarOpen }) => {
           </li>
 
           {/* Menu Cadastros */}
-          <li
-            onClick={() => setCadastroOpen(!cadastroOpen)}
-            style={{ cursor: "pointer" }}
-          >
-            <div className="menu-toggle">
+          <li onClick={() => setCadastroOpen(!cadastroOpen)} className="cadastro-toggle">
+            <div className="cadastro-link">
               <FaClipboardList className="icon" />
               {sidebarOpen && <span>Cadastros</span>}
-              {sidebarOpen && (cadastroOpen ? <FaChevronUp /> : <FaChevronDown />)}
+              {sidebarOpen && (cadastroOpen ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />)}
             </div>
           </li>
 
+          {/* Submenu */}
           {cadastroOpen && sidebarOpen && (
             <ul className="submenu">
               <li>
                 <NavLink to="/cadastro-veiculos">
-                  <FaTruck className="icon" />
                   <span>Veículos</span>
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/cadastro-motoristas">
-                  <FaUserTie className="icon" />
                   <span>Motoristas</span>
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/cadastro-carregamentos">
-                  <FaClipboardList className="icon" />
                   <span>Carregamentos</span>
                 </NavLink>
               </li>
