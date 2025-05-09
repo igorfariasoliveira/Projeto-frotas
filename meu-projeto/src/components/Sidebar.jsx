@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaTruck, FaTools, FaChartBar, FaUserTie } from "react-icons/fa";
+import {
+  FaHome,
+  FaTruck,
+  FaTools,
+  FaChartBar,
+  FaUserTie,
+  FaClipboardList,
+  FaChevronDown,
+  FaChevronUp,
+} from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
+import "../styles/Sidebar.css";
 
 const Sidebar = ({ sidebarOpen }) => {
+  const [cadastroOpen, setCadastroOpen] = useState(false);
+
   return (
     <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
       <div className="logo-container">
@@ -41,6 +53,41 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
+
+          {/* Menu Cadastros */}
+          <li
+            onClick={() => setCadastroOpen(!cadastroOpen)}
+            style={{ cursor: "pointer" }}
+          >
+            <div className="menu-toggle">
+              <FaClipboardList className="icon" />
+              {sidebarOpen && <span>Cadastros</span>}
+              {sidebarOpen && (cadastroOpen ? <FaChevronUp /> : <FaChevronDown />)}
+            </div>
+          </li>
+
+          {cadastroOpen && sidebarOpen && (
+            <ul className="submenu">
+              <li>
+                <NavLink to="/cadastro-veiculos">
+                  <FaTruck className="icon" />
+                  <span>Veículos</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-motoristas">
+                  <FaUserTie className="icon" />
+                  <span>Motoristas</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-carregamentos">
+                  <FaClipboardList className="icon" />
+                  <span>Carregamentos</span>
+                </NavLink>
+              </li>
+            </ul>
+          )}
         </ul>
       </nav>
     </aside>
