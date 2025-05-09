@@ -5,7 +5,7 @@ import {
   FaClipboardList, FaAngleDown, FaAngleUp
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
-import "../styles/Sidebar.css"
+import "../styles/Sidebar.css";
 
 const Sidebar = ({ sidebarOpen }) => {
   const [cadastrosOpen, setCadastrosOpen] = useState(false);
@@ -47,7 +47,8 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
-          <li onClick={() => setCadastrosOpen(!cadastrosOpen)} className="cadastros-toggle">
+
+          <li className="cadastros-toggle" onClick={() => setCadastrosOpen(!cadastrosOpen)}>
             <div className="cadastros-link">
               <FaClipboardList className="icon" />
               {sidebarOpen && (
@@ -58,6 +59,7 @@ const Sidebar = ({ sidebarOpen }) => {
               )}
             </div>
           </li>
+
           {cadastrosOpen && sidebarOpen && (
             <ul className="cadastros-submenu">
               <li>
