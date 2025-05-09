@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (email === "admin@empresa.com" && password === "123456") {
+    if (email === "igor" && password === "123456") {
       setLoginError(false); 
       navigate("/dashboard");
     } else {
