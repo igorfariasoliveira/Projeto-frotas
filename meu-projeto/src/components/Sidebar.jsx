@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaHome,
-  FaTruck,
-  FaTools,
-  FaChartBar,
-  FaUserTie,
-  FaClipboardList,
-  FaChevronDown,
-  FaChevronUp,
+  FaHome, FaTruck, FaTools, FaChartBar, FaUserTie,
+  FaClipboardList, FaAngleDown, FaAngleUp
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
+import "../styles/Sidebar.css"
 
 const Sidebar = ({ sidebarOpen }) => {
-  const [cadastroOpen, setCadastroOpen] = useState(false);
+  const [cadastrosOpen, setCadastrosOpen] = useState(false);
 
   return (
     <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
@@ -52,19 +47,19 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
-
-          {/* Menu Cadastros */}
-          <li onClick={() => setCadastroOpen(!cadastroOpen)} className="cadastro-toggle">
-            <div className="cadastro-link">
+          <li onClick={() => setCadastrosOpen(!cadastrosOpen)} className="cadastros-toggle">
+            <div className="cadastros-link">
               <FaClipboardList className="icon" />
-              {sidebarOpen && <span>Cadastros</span>}
-              {sidebarOpen && (cadastroOpen ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />)}
+              {sidebarOpen && (
+                <>
+                  <span>Cadastros</span>
+                  {cadastrosOpen ? <FaAngleUp /> : <FaAngleDown />}
+                </>
+              )}
             </div>
           </li>
-
-          {/* Submenu */}
-          {cadastroOpen && sidebarOpen && (
-            <ul className="submenu">
+          {cadastrosOpen && sidebarOpen && (
+            <ul className="cadastros-submenu">
               <li>
                 <NavLink to="/cadastro-veiculos">
                   <span>Veículos</span>
