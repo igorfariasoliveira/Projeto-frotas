@@ -92,7 +92,6 @@
   width: 0;
 }
 
-/* Cadastros dropdown */
 .cadastro-link {
   display: flex;
   align-items: center;
@@ -129,7 +128,6 @@
   border-radius: 4px;
 }
 
-/* Estilo para item principal com submenu */
 .sidebar .cadastros-toggle {
   display: flex;
   align-items: center;
@@ -145,7 +143,6 @@
   width: 100%;
 }
 
-/* Submenu */
 .sidebar .cadastros-submenu {
   list-style: none;
   padding-left: 30px;
@@ -183,6 +180,10 @@
 
   .cadastros-submenu {
     display: none !important;
+  }
+  
+  .toggle-button {
+    display: none;
   }
 }
 
