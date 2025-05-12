@@ -167,3 +167,22 @@
 .sidebar .cadastros-submenu li a:hover {
   color: #007bff;
 }
+
+@media (max-width: 730px) {
+  .sidebar.open {
+    width: 60px;
+  }
+
+  .sidebar .logo-container img {
+    display: none;
+  }
+
+  .sidebar span {
+    display: none;
+  }
+
+  .cadastros-submenu {
+    display: none !important;
+  }
+}
+

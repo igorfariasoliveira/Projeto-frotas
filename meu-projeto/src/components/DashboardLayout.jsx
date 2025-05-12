@@ -1,8 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import "../styles/Dashboard.css";
+
 const DashboardLayout = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 730);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 730) {
+        setSidebarOpen(false);
+      }
+    };
+
+    // Escuta mudanças no tamanho da janela
+    window.addEventListener("resize", handleResize);
+
+    // Garante retração ao carregar se necessário
+    if (window.innerWidth <= 730) {
+      setSidebarOpen(false);
+    }
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
