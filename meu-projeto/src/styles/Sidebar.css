@@ -133,7 +133,7 @@
 .sidebar .cadastros-toggle {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 15px 15px 5px 20px;
   cursor: pointer;
   color: inherit;
 }
@@ -161,6 +161,7 @@
   text-decoration: none;
   display: block;
   transition: color 0.3s ease;
+  padding: 10px 15px;
 }
 
 .sidebar .cadastros-submenu li a:hover {
