@@ -7,6 +7,7 @@ import Manutencoes from "../pages/Manutencoes";
 import Motoristas from "../pages/Motoristas";
 import Relatorios from "../pages/Relatorios";
 import CadastroVeiculo from "../pages/CadastroVeiculo";
+import CadastroMotorista from "../pages/CadastroMotorista";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,8 @@ const AppRoutes = () => {
       <Route path="/Motoristas" element={<Motoristas />} />
       <Route path="/Relatorios" element={<Relatorios/>}/>
       <Route path="/cadastro-veiculos" element={<CadastroVeiculo/>}/>
+      <Route path="/cadastro-motorista" element={<CadastroMotorista />} />
+      <Route path="/cadastro-motorista/:id" element={<CadastroMotorista />} />
     </Routes>
   );
 };

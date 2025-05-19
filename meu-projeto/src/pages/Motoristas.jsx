@@ -1,4 +1,3 @@
-// Motoristas.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSortDown, FaSortUp, FaEdit } from "react-icons/fa";
@@ -95,8 +94,8 @@ const Motoristas = () => {
     setExpandido(expandido === id ? null : id);
   };
 
-  const editarMotorista = (id) => {
-    navigate(`/cadastro-motorista/${id}`);
+  const editarMotorista = (motorista) => {
+  navigate("/cadastro-motorista", { state: { motorista } });
   };
 
   return (
@@ -124,7 +123,7 @@ const Motoristas = () => {
                   <td>
                     <button
                       className="editar-btn"
-                      onClick={() => editarMotorista(motorista.id)}
+                      onClick={() => editarMotorista(motorista)}
                     >
                       <FaEdit /> Editar
                     </button>

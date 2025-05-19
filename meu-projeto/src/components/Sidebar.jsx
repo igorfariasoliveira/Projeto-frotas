@@ -68,7 +68,7 @@ const Sidebar = ({ sidebarOpen }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/cadastro-motoristas">
+                <NavLink to="/cadastro-motorista">
                   <span>Motoristas</span>
                 </NavLink>
               </li>
