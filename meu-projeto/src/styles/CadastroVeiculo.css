@@ -1,0 +1,26 @@
+.cadastro-container {
+  padding: 2rem;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cadastro-form input,
+.cadastro-form select {
+  flex: 1 1 300px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.cadastro-form button {
+  padding: 0.7rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
