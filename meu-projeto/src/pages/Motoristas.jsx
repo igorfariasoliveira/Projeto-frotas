@@ -1,5 +1,7 @@
+// Motoristas.jsx
 import React, { useState } from "react";
-import { FaSortDown, FaSortUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { FaSortDown, FaSortUp, FaEdit } from "react-icons/fa";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Motoristas.css";
 
@@ -9,7 +11,7 @@ const dadosMotoristas = [
     nome: "João da Silva",
     ultimoCarregamento: "25/04/2025",
     habilitacao: "987654321",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     telefone: "(11) 91234-5678",
     email: "joao.silva@email.com",
   },
@@ -18,7 +20,7 @@ const dadosMotoristas = [
     nome: "Maria Oliveira",
     ultimoCarregamento: "24/04/2025",
     habilitacao: "123456789",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     telefone: "(11) 92345-6789",
     email: "maria.oliveira@email.com",
   },
@@ -27,7 +29,7 @@ const dadosMotoristas = [
     nome: "Igor Farias",
     ultimoCarregamento: "24/09/2025",
     habilitacao: "068958475478",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -36,7 +38,7 @@ const dadosMotoristas = [
     nome: "Pedro dantas",
     ultimoCarregamento: "24/09/2025",
     habilitacao: "068958475478",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
   },
@@ -44,7 +46,7 @@ const dadosMotoristas = [
     id: 5,
     nome: "Luan Alves",
     ultimoCarregamento: "24/09/2025",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     habilitacao: "068958475478",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
@@ -53,7 +55,7 @@ const dadosMotoristas = [
     id: 6,
     nome: "Sergio Pires",
     ultimoCarregamento: "24/09/2025",
-    vencimento:"25/02/2030",
+    vencimento: "25/02/2030",
     habilitacao: "068958475478",
     telefone: "(11) 9678-8381",
     email: "igor@hotmail.com",
@@ -61,6 +63,7 @@ const dadosMotoristas = [
 ];
 
 const Motoristas = () => {
+  const navigate = useNavigate();
   const [motoristas, setMotoristas] = useState(dadosMotoristas);
   const [expandido, setExpandido] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
@@ -92,6 +95,10 @@ const Motoristas = () => {
     setExpandido(expandido === id ? null : id);
   };
 
+  const editarMotorista = (id) => {
+    navigate(`/cadastro-motorista/${id}`);
+  };
+
   return (
     <DashboardLayout>
       <main className="motoristas-content">
@@ -105,21 +112,27 @@ const Motoristas = () => {
               <th onClick={() => ordenar("ultimoCarregamento")}>
                 Último Carregamento {getIconeOrdenacao("ultimoCarregamento")}
               </th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             {motoristas.map((motorista) => (
               <React.Fragment key={motorista.id}>
-                <tr onClick={() => toggleExpandido(motorista.id)} className="clickable-row">
+                <tr className="clickable-row">
+                  <td onClick={() => toggleExpandido(motorista.id)}>{motorista.nome}</td>
+                  <td onClick={() => toggleExpandido(motorista.id)}>{motorista.ultimoCarregamento}</td>
                   <td>
-                    {motorista.nome}{" "}
-                
+                    <button
+                      className="editar-btn"
+                      onClick={() => editarMotorista(motorista.id)}
+                    >
+                      <FaEdit /> Editar
+                    </button>
                   </td>
-                  <td>{motorista.ultimoCarregamento}</td>
                 </tr>
                 {expandido === motorista.id && (
                   <tr className="expandable-details">
-                    <td colSpan="2">
+                    <td colSpan="3">
                       <div className="expandable-details-content">
                         <p><strong>CNH:</strong> {motorista.habilitacao}</p>
                         <p><strong>Vencimento:</strong> {motorista.vencimento}</p>
