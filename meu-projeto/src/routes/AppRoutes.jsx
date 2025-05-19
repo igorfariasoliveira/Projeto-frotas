@@ -6,6 +6,7 @@ import Veiculos from "../pages/Veiculo";
 import Manutencoes from "../pages/Manutencoes";
 import Motoristas from "../pages/Motoristas";
 import Relatorios from "../pages/Relatorios";
+import CadastroVeiculo from "../pages/CadastroVeiculo";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/manutencoes" element={<Manutencoes />} />
       <Route path="/Motoristas" element={<Motoristas />} />
       <Route path="/Relatorios" element={<Relatorios/>}/>
+      <Route path="/CadastroVeiculo" element={<CadastroVeiculo/>}/>
     </Routes>
   );
 };
