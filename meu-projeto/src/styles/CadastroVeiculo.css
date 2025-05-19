@@ -10,7 +10,7 @@
 
 .cadastro-form input,
 .cadastro-form select {
-  flex: 1 1 300px;
+  flex: 1 1 30px;
   padding: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
