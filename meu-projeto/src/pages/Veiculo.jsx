@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/Veiculos.css";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const veiculosExemplo = [
   {
@@ -30,6 +31,11 @@ const veiculosExemplo = [
 const Veiculos = () => {
   const [veiculos, setVeiculos] = useState(veiculosExemplo);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+  const navigate = useNavigate();
+
+  const handleEditar = (veiculo) => {
+    navigate("/cadastro-veiculos", { state: { veiculo } });
+  };
 
   const ordenar = (key) => {
     let direction = "asc";
@@ -87,6 +93,7 @@ const Veiculos = () => {
               <th onClick={() => ordenar("motorista")}>
                 Motorista {renderSortIcon("motorista")}
               </th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -97,6 +104,9 @@ const Veiculos = () => {
                 <td>{v.manutencao}</td>
                 <td>{v.licenciamento}</td>
                 <td>{v.motorista}</td>
+                <td>
+                  <button onClick={() => handleEditar(v)}>Editar</button>
+                </td>
               </tr>
             ))}
           </tbody>

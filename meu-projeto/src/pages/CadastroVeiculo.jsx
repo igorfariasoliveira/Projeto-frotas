@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 import "../styles/CadastroVeiculo.css";
+import { useLocation } from "react-router-dom";
 
 const CadastroVeiculo = () => {
+  const location = useLocation();
+  const veiculoEditando = location.state?.veiculo;
+
   const [veiculo, setVeiculo] = useState({
     codVeiculo: "",
     placa: "",
@@ -23,6 +27,12 @@ const CadastroVeiculo = () => {
     status: true
   });
 
+  useEffect(() => {
+    if (veiculoEditando) {
+      setVeiculo((prev) => ({ ...prev, ...veiculoEditando }));
+    }
+  }, [veiculoEditando]);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setVeiculo({ ...veiculo, [name]: type === "checkbox" ? checked : value });
@@ -30,13 +40,17 @@ const CadastroVeiculo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Veículo cadastrado:", veiculo);
+    if (veiculoEditando) {
+      console.log("Veículo atualizado:", veiculo);
+    } else {
+      console.log("Veículo cadastrado:", veiculo);
+    }
   };
 
   return (
     <DashboardLayout>
       <div className="cadastro-container">
-        <h2>Cadastro de Veículo</h2>
+        <h2>{veiculoEditando ? "Editar Veículo" : "Cadastro de Veículo"}</h2>
         <form onSubmit={handleSubmit} className="cadastro-form">
           <input type="text" name="placa" placeholder="Placa" value={veiculo.placa} onChange={handleChange} />
           <input type="text" name="chassi" placeholder="Chassi" value={veiculo.chassi} onChange={handleChange} />
@@ -49,47 +63,10 @@ const CadastroVeiculo = () => {
           <input type="number" name="qtRodas" placeholder="Quantidade de Rodas" value={veiculo.qtRodas} onChange={handleChange} />
           <input type="number" step="0.1" name="qtLitros" placeholder="Capacidade de Litros" value={veiculo.qtLitros} onChange={handleChange} />
           <input type="text" name="combustivel" placeholder="Tipo de Combustível" value={veiculo.combustivel} onChange={handleChange} />
-          <input type="number" name="kmAtual" placeholder="KM Atual" value={veiculo.kmAtual} onChange={handleChange} />
           <input type="text" name="propietario" placeholder="Nome do Proprietário" value={veiculo.propietario} onChange={handleChange} />
-
-          <div className="form-group">
-            <label htmlFor="vencimentoIpva">Vencimento do IPVA</label>
-            <input
-              type="date"
-              id="vencimentoIpva"
-              name="vencimentoIpva"
-              value={veiculo.vencimentoIpva}
-              onChange={handleChange}
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="disponibilidade">Disponibilidade</label>
-            <select
-              id="disponibilidade"
-              name="disponibilidade"
-              value={veiculo.disponibilidade}
-              onChange={handleChange}
-              className="form-control"
-            >
-              <option value="DISPONIVEL">Disponível</option>
-              <option value="EM_ROTA">Em Rota</option>
-              <option value="NA_OFICINA">Na Oficina</option>
-            </select>
-          </div>
-           <div className="form-group">
-            <label>
-              Status Ativo
-              <input
-                type="checkbox"
-                name="status"
-                checked={veiculo.status}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-
-          <button type="submit">Salvar Veículo</button>
+          <label htmlFor="vencimentoIpva">Vencimento do IPVA</label>
+          <input type="date" name="vencimentoIpva" value={veiculo.vencimentoIpva} onChange={handleChange} />
+          <button type="submit">{veiculoEditando ? "Salvar Alterações" : "Salvar Veículo"}</button>
         </form>
       </div>
     </DashboardLayout>
