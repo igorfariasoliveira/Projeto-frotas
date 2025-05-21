@@ -1,6 +1,7 @@
 import "../styles/cadastroCarga.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardLayout from "../components/DashboardLayout";
+import { useLocation } from "react-router-dom";
 
 export default function CadastroCarregamento() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,13 @@ export default function CadastroCarregamento() {
     totalKm: "",
     destino: "",
   });
+  
+  const location = useLocation();
+  useEffect(() => {
+  if (location.state?.carga) {
+    setFormData(location.state.carga);
+  }
+  }, [location]);
 
   function handleChange(e) {
     const { name, value } = e.target;
