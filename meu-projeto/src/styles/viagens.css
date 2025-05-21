@@ -2,26 +2,30 @@
   padding: 20px;
 }
 
-.viagens-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.viagem-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
-.viagens-table th,
-.viagens-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-.viagens-table th {
+.viagem-header {
   background-color: #f4f4f4;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
-.viagens-table button {
-  padding: 5px 10px;
-  background-color: #4caf50;
+.viagem-detalhes {
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.button-edit {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 5px;
