@@ -9,6 +9,7 @@ import Relatorios from "../pages/Relatorios";
 import CadastroVeiculo from "../pages/CadastroVeiculo";
 import CadastroMotorista from "../pages/CadastroMotorista";
 import CadastroCarregamento from "../pages/CadastroCarregamento";
+import Cargas from "../pages/Cargas";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/cadastro-veiculos" element={<CadastroVeiculo/>}/>
       <Route path="/cadastro-motorista" element={<CadastroMotorista />} />
       <Route path="/cadastro-carregamento" element={<CadastroCarregamento />} />
+      <Route path="/carga" element={<Cargas/>} />
     </Routes>
   );
 };

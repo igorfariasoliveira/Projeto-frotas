@@ -47,7 +47,12 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
-
+           <li>
+            <NavLink to="/carga">
+              <FaTools className="icon" />
+              {sidebarOpen && <span>Manutenções</span>}
+            </NavLink>
+          </li>
           <li className="cadastros-toggle" onClick={() => setCadastrosOpen(!cadastrosOpen)}>
             <div className="cadastros-link">
               <FaClipboardList className="icon" />
