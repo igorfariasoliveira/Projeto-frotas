@@ -17,10 +17,17 @@ const CadastroMotorista = () => {
 
   useEffect(() => {
     if (motoristaEditando) {
-      setMotorista(motoristaEditando);
+      setMotorista({...motoristaEditando,
+        vencimento: formatarDataISO(motoristaEditando.vencimento),
+      });
     }
   }, [motoristaEditando]);
 
+  const formatarDataISO = (dataStr) => {
+  const [dia, mes, ano] = dataStr.split("/");
+  return `${ano}-${mes}-${dia}`; // para input type="date"
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMotorista((prev) => ({ ...prev, [name]: value }));
