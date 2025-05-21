@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/cadastroViagem.css';
+import DashboardLayout from "../components/DashboardLayout";
 
 export default function CadastroViagem() {
   const [form, setForm] = useState({

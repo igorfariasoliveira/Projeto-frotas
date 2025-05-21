@@ -88,6 +88,11 @@ const Sidebar = ({ sidebarOpen }) => {
                   <span>Carregamentos</span>
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/cadastro-viagem">
+                  <span>Viagens</span>
+                </NavLink>
+              </li>
             </ul>
           )}
         </ul>

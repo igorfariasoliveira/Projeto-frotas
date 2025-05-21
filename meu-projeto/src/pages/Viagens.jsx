@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/viagens.css';
+import DashboardLayout from "../components/DashboardLayout";
 
 const viagensExemplo = [
   {
@@ -31,7 +32,8 @@ export default function Viagens() {
   };
 
   return (
-    <div className="viagens-container">
+   <DashboardLayout>
+   <div className="viagens-container">
       <h2>Lista de Viagens</h2>
       <table className="viagens-table">
         <thead>
@@ -62,5 +64,6 @@ export default function Viagens() {
         </tbody>
       </table>
     </div>
+    </DashboardLayout>
   );
 }
