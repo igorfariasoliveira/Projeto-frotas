@@ -1,0 +1,32 @@
+.cadastro-viagem-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.viagem-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.viagem-form label {
+  margin-top: 10px;
+}
+
+.viagem-form input,
+.viagem-form select {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.viagem-form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
