@@ -19,11 +19,12 @@ const AppRoutes = () => {
       <Route path="/veiculos" element={<Veiculos />} />
       <Route path="/manutencoes" element={<Manutencoes />} />
       <Route path="/Motoristas" element={<Motoristas />} />
-      <Route path="/Relatorios" element={<Relatorios/>}/>
-      <Route path="/cadastro-veiculos" element={<CadastroVeiculo/>}/>
+      <Route path="/Relatorios" element={<Relatorios />} />
+      <Route path="/cadastro-veiculos" element={<CadastroVeiculo />} />
       <Route path="/cadastro-motorista" element={<CadastroMotorista />} />
       <Route path="/cadastro-carregamento" element={<CadastroCarregamento />} />
-      <Route path="/carga" element={<Cargas/>} />
+      <Route path="/carga" element={<Cargas />} />
+      <Route path="/viagem" element={<Viagens />} />
     </Routes>
   );
 };
