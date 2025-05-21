@@ -73,7 +73,7 @@ const Sidebar = ({ sidebarOpen }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/cadastro-carregamentos">
+                <NavLink to="/cadastro-carregamento">
                   <span>Carregamentos</span>
                 </NavLink>
               </li>
