@@ -49,24 +49,79 @@ const CadastroVeiculo = () => {
 
   return (
     <DashboardLayout>
-      <div className="cadastro-container">
-        <h2>{veiculoEditando ? "Editar Veículo" : "Cadastro de Veículo"}</h2>
-        <form onSubmit={handleSubmit} className="cadastro-form">
-          <input type="text" name="placa" placeholder="Placa" value={veiculo.placa} onChange={handleChange} />
-          <input type="text" name="chassi" placeholder="Chassi" value={veiculo.chassi} onChange={handleChange} />
-          <input type="text" name="descricao" placeholder="Descrição" value={veiculo.descricao} onChange={handleChange} />
-          <input type="text" name="marca" placeholder="Marca" value={veiculo.marca} onChange={handleChange} />
-          <input type="text" name="tipoVeiculo" placeholder="Tipo de Veículo" value={veiculo.tipoVeiculo} onChange={handleChange} />
-          <input type="text" name="cor" placeholder="Cor" value={veiculo.cor} onChange={handleChange} />
-          <input type="number" name="totalPeso" placeholder="Carga máxima (kg)" value={veiculo.totalPeso} onChange={handleChange} />
-          <input type="number" name="qtEixos" placeholder="Quantidade de Eixos" value={veiculo.qtEixos} onChange={handleChange} />
-          <input type="number" name="qtRodas" placeholder="Quantidade de Rodas" value={veiculo.qtRodas} onChange={handleChange} />
-          <input type="number" step="0.1" name="qtLitros" placeholder="Capacidade de Litros" value={veiculo.qtLitros} onChange={handleChange} />
-          <input type="text" name="combustivel" placeholder="Tipo de Combustível" value={veiculo.combustivel} onChange={handleChange} />
-          <input type="text" name="propietario" placeholder="Nome do Proprietário" value={veiculo.propietario} onChange={handleChange} />
-          <label htmlFor="vencimentoIpva">Vencimento do IPVA</label>
-          <input type="date" name="vencimentoIpva" value={veiculo.vencimentoIpva} onChange={handleChange} />
-          <button type="submit">{veiculoEditando ? "Salvar Alterações" : "Salvar Veículo"}</button>
+      <div className="cadastro-veiculo-container">
+        <h1>{veiculoEditando ? "Editar Veículo" : "Cadastro de Veículo"}</h1>
+        <form onSubmit={handleSubmit} className="veiculo-form">
+          <div className="form-grid">
+            <div className="form-group">
+              <label>Placa</label>
+              <input type="text" name="placa" value={veiculo.placa} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Chassi</label>
+              <input type="text" name="chassi" value={veiculo.chassi} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Descrição</label>
+              <input type="text" name="descricao" value={veiculo.descricao} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Marca</label>
+              <input type="text" name="marca" value={veiculo.marca} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Tipo de Veículo</label>
+              <input type="text" name="tipoVeiculo" value={veiculo.tipoVeiculo} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Cor</label>
+              <input type="text" name="cor" value={veiculo.cor} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Carga máxima (kg)</label>
+              <input type="number" name="totalPeso" value={veiculo.totalPeso} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Quantidade de Eixos</label>
+              <input type="number" name="qtEixos" value={veiculo.qtEixos} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Quantidade de Rodas</label>
+              <input type="number" name="qtRodas" value={veiculo.qtRodas} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Capacidade de Litros</label>
+              <input type="number" step="0.1" name="qtLitros" value={veiculo.qtLitros} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Tipo de Combustível</label>
+              <input type="text" name="combustivel" value={veiculo.combustivel} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Nome do Proprietário</label>
+              <input type="text" name="propietario" value={veiculo.propietario} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label>Vencimento do IPVA</label>
+              <input type="date" name="vencimentoIpva" value={veiculo.vencimentoIpva} onChange={handleChange} />
+            </div>
+          </div>
+
+          <button type="submit" className="btn-salvar">
+            {veiculoEditando ? "Salvar Alterações" : "Salvar Veículo"}
+          </button>
         </form>
       </div>
     </DashboardLayout>
