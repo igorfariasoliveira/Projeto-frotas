@@ -33,7 +33,6 @@ export default function CadastroViagem() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Dados enviados:', form);
-    // Aqui pode ser colocado o POST/PUT via API futuramente
   };
 
   return (
