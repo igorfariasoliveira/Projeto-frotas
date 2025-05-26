@@ -40,7 +40,7 @@ export default function CadastroCarregamento() {
     <DashboardLayout>
       <div className="container">
         <h1>Cadastro de Carregamento</h1>
-        <form onSubmit={handleSubmit} className="form-grid">
+        <form onSubmit={handleSubmit} >
           <label>Número do Carregamento</label>
           <input className="input" type="text" name="numeroCarregamento" value={formData.numeroCarregamento} onChange={handleChange} />
 

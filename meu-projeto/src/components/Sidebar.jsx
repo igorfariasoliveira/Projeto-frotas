@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   FaHome, FaTruck, FaTools, FaChartBar, FaUserTie,
-  FaClipboardList, FaAngleDown, FaAngleUp
+  FaClipboardList, FaAngleDown, FaAngleUp, FaBox, FaRoute
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
 import "../styles/Sidebar.css";
@@ -49,13 +49,13 @@ const Sidebar = ({ sidebarOpen }) => {
           </li>
            <li>
             <NavLink to="/carga">
-              <FaTools className="icon" />
+              <FaBox className="icon" />
               {sidebarOpen && <span>Cargas</span>}
             </NavLink>
           </li>
           <li>
             <NavLink to="/viagem">
-              <FaTools className="icon" />
+              <FaRoute className="icon" />
               {sidebarOpen && <span>Viagens</span>}
             </NavLink>
           </li>
