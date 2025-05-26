@@ -7,21 +7,21 @@ import { useNavigate } from "react-router-dom";
 const veiculosExemplo = [
   {
     placa: "ABC-1234",
-    combustivel: "R$ 4.500",
+    qtLitros: 200,
     manutencao: "12/03/2025",
     licenciamento: "01/01/2025",
     motorista: "Carlos Souza",
   },
   {
     placa: "DEF-5678",
-    combustivel: "R$ 3.200",
+    qtLitros: 150,
     manutencao: "02/04/2025",
     licenciamento: "15/02/2025",
     motorista: "Ana Martins",
   },
   {
     placa: "GHI-9012",
-    combustivel: "R$ 5.100",
+    qtLitros: 180,
     manutencao: "22/03/2025",
     licenciamento: "10/01/2025",
     motorista: "João Pereira",
@@ -44,12 +44,12 @@ const Veiculos = () => {
     }
 
     const sorted = [...veiculos].sort((a, b) => {
-      const aValue = key === "combustivel" ? parseFloat(a[key].replace(/[^\d,-]+/g, "").replace(",", ".")) : a[key];
-      const bValue = key === "combustivel" ? parseFloat(b[key].replace(/[^\d,-]+/g, "").replace(",", ".")) : b[key];
+      const aValue = a[key];
+      const bValue = b[key];
 
-      if (key.includes("manutencao") || key.includes("licenciamento")) {
-        const aDate = new Date(a[key].split("/").reverse().join("-"));
-        const bDate = new Date(b[key].split("/").reverse().join("-"));
+      if (key === "manutencao" || key === "licenciamento") {
+        const aDate = new Date(aValue.split("/").reverse().join("-"));
+        const bDate = new Date(bValue.split("/").reverse().join("-"));
         return direction === "asc" ? aDate - bDate : bDate - aDate;
       }
 
@@ -81,8 +81,8 @@ const Veiculos = () => {
               <th onClick={() => ordenar("placa")}>
                 Placa {renderSortIcon("placa")}
               </th>
-              <th onClick={() => ordenar("combustivel")}>
-                Gasto com Combustível {renderSortIcon("combustivel")}
+              <th onClick={() => ordenar("qtLitros")}>
+                Capacidade de Combustível (L) {renderSortIcon("qtLitros")}
               </th>
               <th onClick={() => ordenar("manutencao")}>
                 Última Manutenção {renderSortIcon("manutencao")}
@@ -100,7 +100,7 @@ const Veiculos = () => {
             {veiculos.map((v, index) => (
               <tr key={index}>
                 <td>{v.placa}</td>
-                <td>{v.combustivel}</td>
+                <td>{v.qtLitros} L</td>
                 <td>{v.manutencao}</td>
                 <td>{v.licenciamento}</td>
                 <td>{v.motorista}</td>
