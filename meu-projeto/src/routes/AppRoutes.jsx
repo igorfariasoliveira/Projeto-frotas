@@ -12,6 +12,8 @@ import CadastroCarregamento from "../pages/CadastroCarregamento";
 import Cargas from "../pages/Cargas";
 import Viagens from "../pages/Viagens";
 import CadastroViagem from "../pages/CadastroViagem";
+import Ajudantes from "../pages/Ajudantes";
+import CadastroAjudante from "../pages/CadastroAjudante";
 
 const AppRoutes = () => {
   return (
@@ -28,6 +30,8 @@ const AppRoutes = () => {
       <Route path="/carga" element={<Cargas />} />
       <Route path="/viagem" element={<Viagens />} />
       <Route path="/cadastro-viagem" element={<CadastroViagem />} />
+      <Route path="/ajudantes" element={<Ajudantes />} />
+      <Route path="/cadastro-ajudante" element={<CadastroAjudante />} />
     </Routes>
   );
 };
