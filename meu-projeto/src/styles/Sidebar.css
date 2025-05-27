@@ -5,13 +5,13 @@
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100vh; 
-  overflow-y: scroll; /* mantém funcionalidade */
-  scrollbar-width: none; /* Firefox */
+  height: 100vh;
+  overflow-y: scroll; 
+  scrollbar-width: none; 
 }
 
 .sidebar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .sidebar.closed {
@@ -81,10 +81,7 @@
 }
 
 .sidebar .cadastros-toggle {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  cursor: pointer;
+  flex-direction: column;
 }
 
 .sidebar .cadastros-link {
@@ -92,6 +89,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
+  padding: 15px 20px;
 }
 
 .sidebar .cadastros-submenu {
