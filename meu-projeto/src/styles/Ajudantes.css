@@ -1,0 +1,70 @@
+.ajudantes-container {
+  padding: 20px;
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ajudantes-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.ajudantes-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.ajudantes-container button:hover {
+  background-color: #0056b3;
+}
+
+.ajudantes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ajudantes-table th,
+.ajudantes-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ajudantes-table th {
+  background-color: #f0f2f5;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ajudantes-table th:hover {
+  background-color: #e0e0e0;
+}
+
+.ajudantes-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.ajudantes-table button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ajudantes-table button:hover {
+  background-color: #218838;
+}
