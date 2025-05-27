@@ -59,6 +59,12 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Viagens</span>}
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/ajudantes">
+              <FaTruck className="icon" />
+              {sidebarOpen && <span>Ajudantes</span>}
+            </NavLink>
+          </li>
           <li className="cadastros-toggle" onClick={() => setCadastrosOpen(!cadastrosOpen)}>
             <div className="cadastros-link">
               <FaClipboardList className="icon" />
@@ -70,7 +76,6 @@ const Sidebar = ({ sidebarOpen }) => {
               )}
             </div>
           </li>
-
           {cadastrosOpen && sidebarOpen && (
             <ul className="cadastros-submenu">
               <li>
@@ -91,6 +96,10 @@ const Sidebar = ({ sidebarOpen }) => {
               <li>
                 <NavLink to="/cadastro-viagem">
                   <span>Viagens</span>
+                </NavLink>
+              </li><li>
+                <NavLink to="/cadastro-ajudante">
+                  <span>Ajudantes</span>
                 </NavLink>
               </li>
             </ul>
