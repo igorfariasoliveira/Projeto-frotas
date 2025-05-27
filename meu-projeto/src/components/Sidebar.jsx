@@ -47,7 +47,7 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Motoristas</span>}
             </NavLink>
           </li>
-           <li>
+          <li>
             <NavLink to="/carga">
               <FaBox className="icon" />
               {sidebarOpen && <span>Cargas</span>}
@@ -76,34 +76,34 @@ const Sidebar = ({ sidebarOpen }) => {
               )}
             </div>
           </li>
-          {cadastrosOpen && sidebarOpen && (
-            <ul className="cadastros-submenu">
-              <li>
-                <NavLink to="/cadastro-veiculos">
-                  <span>Veículos</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/cadastro-motorista">
-                  <span>Motoristas</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/cadastro-carregamento">
-                  <span>Carregamentos</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/cadastro-viagem">
-                  <span>Viagens</span>
-                </NavLink>
-              </li><li>
-                <NavLink to="/cadastro-ajudante">
-                  <span>Ajudantes</span>
-                </NavLink>
-              </li>
-            </ul>
-          )}
+
+          <ul className={`cadastros-submenu ${cadastrosOpen && sidebarOpen ? '' : 'closed'}`}>
+            <li>
+              <NavLink to="/cadastro-veiculos">
+                <span>Veículos</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/cadastro-motorista">
+                <span>Motoristas</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/cadastro-carregamento">
+                <span>Carregamentos</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/cadastro-viagem">
+                <span>Viagens</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/cadastro-ajudante">
+                <span>Ajudantes</span>
+              </NavLink>
+            </li>
+          </ul>
         </ul>
       </nav>
     </aside>
