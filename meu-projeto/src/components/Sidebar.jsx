@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   FaHome, FaTruck, FaTools, FaChartBar, FaUserTie,
-  FaClipboardList, FaAngleDown, FaAngleUp, FaBox, FaRoute
+  FaClipboardList, FaAngleDown, FaAngleUp, FaBox, FaRoute, FaUserFriends
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
 import "../styles/Sidebar.css";
@@ -61,12 +61,13 @@ const Sidebar = ({ sidebarOpen }) => {
           </li>
           <li>
             <NavLink to="/ajudantes">
-              <FaTruck className="icon" />
+              <FaUserFriends className="icon" />
               {sidebarOpen && <span>Ajudantes</span>}
             </NavLink>
           </li>
-          <li className="cadastros-toggle" onClick={() => setCadastrosOpen(!cadastrosOpen)}>
-            <div className="cadastros-link">
+
+          <li className="cadastros-toggle">
+            <div className="cadastros-link" onClick={() => setCadastrosOpen(!cadastrosOpen)}>
               <FaClipboardList className="icon" />
               {sidebarOpen && (
                 <>
@@ -75,35 +76,35 @@ const Sidebar = ({ sidebarOpen }) => {
                 </>
               )}
             </div>
-          </li>
 
-          <ul className={`cadastros-submenu ${cadastrosOpen && sidebarOpen ? '' : 'closed'}`}>
-            <li>
-              <NavLink to="/cadastro-veiculos">
-                <span>Veículos</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/cadastro-motorista">
-                <span>Motoristas</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/cadastro-carregamento">
-                <span>Carregamentos</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/cadastro-viagem">
-                <span>Viagens</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/cadastro-ajudante">
-                <span>Ajudantes</span>
-              </NavLink>
-            </li>
-          </ul>
+            <ul className={`cadastros-submenu ${cadastrosOpen && sidebarOpen ? '' : 'closed'}`}>
+              <li>
+                <NavLink to="/cadastro-veiculos">
+                  <span>Veículos</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-motorista">
+                  <span>Motoristas</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-carregamento">
+                  <span>Carregamentos</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-viagem">
+                  <span>Viagens</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cadastro-ajudante">
+                  <span>Ajudantes</span>
+                </NavLink>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </aside>
