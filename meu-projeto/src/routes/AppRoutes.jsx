@@ -14,6 +14,8 @@ import Viagens from "../pages/Viagens";
 import CadastroViagem from "../pages/CadastroViagem";
 import Ajudantes from "../pages/Ajudantes";
 import CadastroAjudante from "../pages/CadastroAjudante";
+import Clientes from "../pages/Clientes";
+import CadastroCliente from "../pages/CadastroCliente";
 
 const AppRoutes = () => {
   return (
@@ -32,6 +34,8 @@ const AppRoutes = () => {
       <Route path="/cadastro-viagem" element={<CadastroViagem />} />
       <Route path="/ajudantes" element={<Ajudantes />} />
       <Route path="/cadastro-ajudante" element={<CadastroAjudante />} />
+      <Route path="/clientes" element={<Clientes />} />
+      <Route path="/cadastro-cliente" element={<CadastroCliente />} />
     </Routes>
   );
 };
