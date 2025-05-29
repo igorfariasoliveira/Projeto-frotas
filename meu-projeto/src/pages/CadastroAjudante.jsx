@@ -14,6 +14,9 @@ const CadastroAjudante = () => {
     nome: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+
   useEffect(() => {
     if (ajudanteEditando) {
       setAjudante((prev) => ({ ...prev, ...ajudanteEditando }));
@@ -23,16 +26,39 @@ const CadastroAjudante = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAjudante({ ...ajudante, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // limpa erro ao digitar
+  };
+
+  const validar = () => {
+    const newErrors = {};
+    if (!ajudante.matricula) {
+      newErrors.matricula = "Matrícula é obrigatória.";
+    }
+    if (!ajudante.nome) {
+      newErrors.nome = "Nome é obrigatório.";
+    }
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = validar();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     if (ajudanteEditando) {
       console.log("Ajudante atualizado:", ajudante);
+      setSuccessMessage("Ajudante atualizado com sucesso!");
     } else {
       console.log("Ajudante cadastrado:", ajudante);
+      setSuccessMessage("Ajudante cadastrado com sucesso!");
     }
-    navigate("/ajudantes");
+
+    setTimeout(() => {
+      navigate("/ajudantes");
+    }, 1500);
   };
 
   return (
@@ -49,6 +75,7 @@ const CadastroAjudante = () => {
               onChange={handleChange}
               required
             />
+            {errors.matricula && <span className="error">{errors.matricula}</span>}
           </div>
           <div className="form-group">
             <label>Nome</label>
@@ -59,10 +86,12 @@ const CadastroAjudante = () => {
               onChange={handleChange}
               required
             />
+            {errors.nome && <span className="error">{errors.nome}</span>}
           </div>
           <button type="submit" className="btn-salvar">
             {ajudanteEditando ? "Salvar Alterações" : "Salvar Ajudante"}
           </button>
+          {successMessage && <div className="success">{successMessage}</div>}
         </form>
       </div>
     </DashboardLayout>
