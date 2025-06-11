@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   FaHome, FaTruck, FaTools, FaChartBar, FaUserTie,
-  FaClipboardList, FaAngleDown, FaAngleUp, FaBox, FaRoute, FaUserFriends,FaUsers
+  FaClipboardList, FaAngleDown, FaAngleUp, FaBox, FaRoute, FaUserFriends,FaUsers, FaBuilding
 } from "react-icons/fa";
 import logo from "../assets/logoSidebar.png";
 import "../styles/Sidebar.css";
@@ -73,8 +73,8 @@ const Sidebar = ({ sidebarOpen }) => {
           </li>
           <li>
             <NavLink to="/filiais">
-              <FaUsers className="icon" />
-              {sidebarOpen && <span>Clientes</span>}
+              <FaBuilding className="icon" />
+              {sidebarOpen && <span>Filiais</span>}
             </NavLink>
           </li>
 
