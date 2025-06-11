@@ -5,6 +5,7 @@ import "../styles/Filiais.css";
 const filiaisExemplo = [
   { id: "1", codigo: 101, razaoSocial: "Filial A", cnpj: "00.000.000/0001-00" },
   { id: "2", codigo: 102, razaoSocial: "Filial B", cnpj: "11.111.111/0001-11" },
+  { id: "3", codigo: 100, razaoSocial: "Filial C", cnpj: "22.222.222/0001-22" },
 ];
 
 const Filiais = () => {
@@ -16,6 +17,29 @@ const Filiais = () => {
     razaoSocial: "",
     cnpj: "",
   });
+
+  const [ordem, setOrdem] = useState({ coluna: "", direcao: "asc" });
+
+  const handleOrdenar = (coluna) => {
+    const novaDirecao =
+      ordem.coluna === coluna && ordem.direcao === "asc" ? "desc" : "asc";
+    setOrdem({ coluna, direcao: novaDirecao });
+
+    const ordenado = [...filiais].sort((a, b) => {
+      const valorA = a[coluna];
+      const valorB = b[coluna];
+
+      if (typeof valorA === "number") {
+        return novaDirecao === "asc" ? valorA - valorB : valorB - valorA;
+      }
+
+      return novaDirecao === "asc"
+        ? valorA.localeCompare(valorB)
+        : valorB.localeCompare(valorA);
+    });
+
+    setFiliais(ordenado);
+  };
 
   const handleEditar = (filial) => {
     setFilialSelecionada(filial);
@@ -40,14 +64,12 @@ const Filiais = () => {
   const handleSalvar = (e) => {
     e.preventDefault();
     if (filialSelecionada.id) {
-      // Atualiza a filial existente
       setFiliais(
         filiais.map((f) =>
           f.id === filialSelecionada.id ? filialSelecionada : f
         )
       );
     } else {
-      // Cadastra nova filial
       const novaFilial = {
         ...filialSelecionada,
         id: Date.now().toString(),
@@ -67,6 +89,11 @@ const Filiais = () => {
     });
   };
 
+  const renderSetaOrdenacao = (coluna) => {
+    if (ordem.coluna !== coluna) return null;
+    return ordem.direcao === "asc" ? " ▲" : " ▼";
+  };
+
   return (
     <DashboardLayout>
       <div className="filiais-container">
@@ -77,9 +104,15 @@ const Filiais = () => {
             <table className="filiais-table">
               <thead>
                 <tr>
-                  <th>Código</th>
-                  <th>Razão Social</th>
-                  <th>CNPJ</th>
+                  <th onClick={() => handleOrdenar("codigo")}>
+                    Código{renderSetaOrdenacao("codigo")}
+                  </th>
+                  <th onClick={() => handleOrdenar("razaoSocial")}>
+                    Razão Social{renderSetaOrdenacao("razaoSocial")}
+                  </th>
+                  <th onClick={() => handleOrdenar("cnpj")}>
+                    CNPJ{renderSetaOrdenacao("cnpj")}
+                  </th>
                   <th>Ações</th>
                 </tr>
               </thead>

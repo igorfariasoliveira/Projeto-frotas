@@ -17,6 +17,12 @@
 .filiais-table th {
   background-color: #f2f2f2;
   text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filiais-table th:hover {
+  background-color: #e1e1e1;
 }
 
 button {
