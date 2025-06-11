@@ -71,6 +71,12 @@ const Sidebar = ({ sidebarOpen }) => {
               {sidebarOpen && <span>Clientes</span>}
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/filiais">
+              <FaUsers className="icon" />
+              {sidebarOpen && <span>Clientes</span>}
+            </NavLink>
+          </li>
 
           <li className="cadastros-toggle">
             <div className="cadastros-link" onClick={() => setCadastrosOpen(!cadastrosOpen)}>

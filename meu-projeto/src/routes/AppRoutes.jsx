@@ -16,6 +16,7 @@ import Ajudantes from "../pages/Ajudantes";
 import CadastroAjudante from "../pages/CadastroAjudante";
 import Clientes from "../pages/Clientes";
 import CadastroCliente from "../pages/CadastroCliente";
+import Filiais from "../pages/Filiais";
 
 const AppRoutes = () => {
   return (
@@ -36,6 +37,7 @@ const AppRoutes = () => {
       <Route path="/cadastro-ajudante" element={<CadastroAjudante />} />
       <Route path="/clientes" element={<Clientes />} />
       <Route path="/cadastro-cliente" element={<CadastroCliente />} />
+      <Route path="/filiais" element={<Filiais />} />
     </Routes>
   );
 };
