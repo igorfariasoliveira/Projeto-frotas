@@ -1,6 +1,9 @@
 .motoristas-content {
   padding: 2rem;
   font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .motoristas-content h1 {
